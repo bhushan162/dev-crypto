@@ -17,7 +17,6 @@
 //       }
 //     }
 //   }https://github.com/bhushan162/dev-crypto
-
 pipeline {
     agent any
 
@@ -36,7 +35,7 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                docker.withRegistry('https://index.docker.io/v1/', 'bhushan162') {
+                docker.withRegistry('https://index.docker.io/v1/', 'my-username') {
                     docker.push('my-website:latest')
                 }
             }
@@ -44,7 +43,7 @@ pipeline {
 
         stage('Deploy to AWS S3') {
             steps {
-                aws s3 cp build s3:devcrypto
+                aws s3 cp build s3://my-website
             }
         }
     }
