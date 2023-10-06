@@ -43,7 +43,7 @@ pipeline {
 
         stage('Deploy to AWS S3') {
             steps {
-                aws s3 cp build s3://my-website
+                aws s3 cp build s3:devcrypto
             }
         }
     }
