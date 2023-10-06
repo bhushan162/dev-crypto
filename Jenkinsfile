@@ -17,6 +17,10 @@
 //       }
 //     }
 //   }https://github.com/bhushan162/dev-crypto
+
+
+//------------------------------------------------------------------------------------------------------------------------
+
 pipeline {
     agent any
 
@@ -43,7 +47,7 @@ pipeline {
 
         stage('Deploy to AWS S3') {
             steps {
-                aws s3 cp build s3:devcrypto
+                aws s3 cp build s3://my-website
             }
         }
     }
